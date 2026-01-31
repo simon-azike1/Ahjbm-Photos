@@ -29,7 +29,7 @@ const Footer = ({ contact, socialLinks }) => {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h4 className="text-white font-semibold uppercase tracking-widest text-sm" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+            {/* <h4 className="text-white font-semibold uppercase tracking-widest text-sm" style={{ fontFamily: "'Montserrat', sans-serif" }}>
               Navigate
             </h4>
             <ul className="space-y-2">
@@ -44,12 +44,12 @@ const Footer = ({ contact, socialLinks }) => {
                   </a>
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </div>
 
           {/* Services */}
           <div className="space-y-4">
-            <h4 className="text-white font-semibold uppercase tracking-widest text-sm" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+            {/* <h4 className="text-white font-semibold uppercase tracking-widest text-sm" style={{ fontFamily: "'Montserrat', sans-serif" }}>
               Services
             </h4>
             <ul className="space-y-2 text-neutral-400 text-sm">
@@ -73,7 +73,7 @@ const Footer = ({ contact, socialLinks }) => {
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity">•</span>
                 <span>Team Portraits</span>
               </li>
-            </ul>
+            </ul> */}
           </div>
 
           {/* Contact */}
