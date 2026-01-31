@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import image from '/Images/Anthony About.jpeg';
+import image from '/Images/Team.png';
 import { Camera, Heart, Eye, Target } from 'lucide-react';
 
 const About = () => {

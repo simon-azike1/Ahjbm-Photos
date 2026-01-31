@@ -148,6 +148,7 @@ const Home = () => {
             className="pt-16"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            target="_blank"
             transition={{ duration: 1.2, delay: 0.8 }}
           >
             <div className="w-6 h-10 border-2 border-white/30 rounded-full mx-auto relative">
