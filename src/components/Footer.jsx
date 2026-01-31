@@ -156,22 +156,29 @@ const Footer = ({ contact, socialLinks }) => {
             <div className="flex items-center gap-6">
               <p>© {currentYear} {contact?.name}. All rights reserved.</p>
               <div className="hidden md:block text-neutral-700">|</div>
-              <a 
+              {/* <a 
                 href="#privacy" 
                 className="hover:text-white transition-colors"
               >
                 Privacy Policy
-              </a>
+              </a> */}
               <div className="hidden md:block text-neutral-700">|</div>
-              <a 
+              {/* <a 
                 href="#terms" 
                 className="hover:text-white transition-colors"
               >
                 Terms of Service
-              </a>
+              </a> */}
             </div>
-            <p className="flex items-center gap-2">
-              Crafted with <Heart size={14} className="text-red-500 fill-red-500" /> for visual storytellers
+            <p className="flex  ml-4 items-center gap-2">
+              Crafted with by <a 
+                href="https://my-new-portfolio-hazel.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:underline"
+              >
+                SimZikTech
+              </a>
             </p>
           </div>
         </div>
