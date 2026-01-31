@@ -11,7 +11,8 @@ const EventPhotos = () => {
       date: "March 2024",
       description: "Three-day conference featuring speakers, workshops, and networking sessions",
       images: 6,
-      featured: true
+      featured: true,
+      coverImage: "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=800&h=600&fit=crop"
     },
     {
       id: 2,
@@ -20,7 +21,8 @@ const EventPhotos = () => {
       date: "June 2024",
       description: "Weekend retreat focused on team development and community building",
       images: 8,
-      featured: false
+      featured: false,
+      coverImage: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=600&fit=crop"
     },
     {
       id: 3,
@@ -29,7 +31,8 @@ const EventPhotos = () => {
       date: "September 2024",
       description: "Empowering professionals through expert-led training and workshops",
       images: 5,
-      featured: true
+      featured: true,
+      coverImage: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&h=600&fit=crop"
     },
     {
       id: 4,
@@ -38,7 +41,8 @@ const EventPhotos = () => {
       date: "October 2024",
       description: "Serving the community through meaningful engagement and action",
       images: 10,
-      featured: false
+      featured: false,
+      coverImage: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&h=600&fit=crop"
     },
     {
       id: 5,
@@ -47,7 +51,8 @@ const EventPhotos = () => {
       date: "December 2024",
       description: "Festive celebration featuring performances, speeches, and community fellowship",
       images: 12,
-      featured: true
+      featured: true,
+      coverImage: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&h=600&fit=crop"
     },
     {
       id: 6,
@@ -56,7 +61,8 @@ const EventPhotos = () => {
       date: "February 2025",
       description: "Inspiring and equipping women in professional growth and leadership",
       images: 7,
-      featured: false
+      featured: false,
+      coverImage: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&h=600&fit=crop"
     }
   ];
 
@@ -200,11 +206,16 @@ const EventPhotos = () => {
                 </motion.div>
               )}
 
-              {/* Image Placeholder */}
-              <div className="aspect-[4/3] bg-gradient-to-br from-neutral-800 to-neutral-900 relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-neutral-700 text-sm">{event.title}</span>
-                </div>
+              {/* Image with Overlay */}
+              <div className="aspect-[4/3] relative overflow-hidden">
+                {/* Actual Image */}
+                <img 
+                  src={event.coverImage} 
+                  alt={event.title}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                
                 {/* Hover Overlay */}
                 <motion.div 
                   className="absolute inset-0 bg-black/70 flex items-center justify-center"
@@ -280,7 +291,7 @@ const EventPhotos = () => {
             documentary-style coverage that tells the complete story of your event.
           </p>
           <motion.a 
-            href="#contact"
+            href="https://wa.me/+212624766818"
             className="inline-block px-8 py-4 bg-white text-black uppercase tracking-widest text-sm font-semibold hover:bg-neutral-200 transition-colors duration-300"
             style={{ fontFamily: "'Montserrat', sans-serif" }}
             whileHover={{ scale: 1.05 }}
