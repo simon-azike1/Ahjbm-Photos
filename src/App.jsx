@@ -2,12 +2,12 @@
 // FILE: src/App.jsx
 // ==================================================
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 // Components
-// import Navbar from './components/Navbar';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 // Pages
 import Home from './pages/Home';
@@ -16,39 +16,35 @@ import Services from './pages/Services';
 import Project from './pages/Project';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
-import Events from './components/Events';
 import Team from './pages/Team';
-import ScrollToTop from './components/ScrollToTop';
+import Events from './components/Events';
 
 const App = () => {
   return (
-    <Router>
-      <div className="flex flex-col min-h-screen">
-        {/* Navbar */}
-        {/* <Navbar /> */}
+    <div className="flex flex-col min-h-screen">
+      {/* Header */}
+      <Header />
 
-        {/* Header */}
-        <Header />
+      {/* Main Content */}
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/projects" element={<Project />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/team" element={<Team />} />
+        </Routes>
+      </main>
 
-        {/* Main Content */}
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/projects" element={<Project />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/events" element={<Events />} />
-            <Route path="/team" element={<Team />} /> 
-          </Routes>
-        </main>
+      {/* Footer */}
+      <Footer />
 
-        {/* Footer */}
-        <Footer />  
-        <ScrollToTop variant="white" showAfter={300} position="bottom-right" />
-      </div>
-    </Router>
+      {/* Scroll Button */}
+      <ScrollToTop variant="white" showAfter={300} position="bottom-right" />
+    </div>
   );
 };
 
