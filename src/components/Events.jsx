@@ -295,6 +295,7 @@ const EventPhotos = () => {
             className="inline-block px-8 py-4 bg-white text-black uppercase tracking-widest text-sm font-semibold hover:bg-neutral-200 transition-colors duration-300"
             style={{ fontFamily: "'Montserrat', sans-serif" }}
             whileHover={{ scale: 1.05 }}
+            target='_blank'
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
