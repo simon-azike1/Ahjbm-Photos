@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin } from 'lucide-react';
-import image1 from '/Images/Anthony2.png';
-import image2 from '/Images/Blessing.jpeg';
+import image1 from '/Images/Anthony.png';
+import image2 from '/Images/Blessing.jpg';
 import image3 from '/Images/Hendrix.png';
 import image4 from '/Images/Martha.png';
 import image5 from '/Images/Benedith.jpg';
