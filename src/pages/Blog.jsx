@@ -21,7 +21,7 @@ const Blog = () => {
       date: "January 15, 2026",
       readTime: "5 min read",
       excerpt: "Learn how to document live events while respecting the atmosphere and capturing genuine emotions.",
-      image: "event-photography",
+      image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&h=500&fit=crop", // Camera and photography equipment
       featured: true
     },
     {
@@ -31,7 +31,7 @@ const Blog = () => {
       date: "December 20, 2025",
       readTime: "8 min read",
       excerpt: "A detailed look at how we covered three days of conference sessions, workshops, and keynote presentations.",
-      image: "corporate-conference",
+      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=500&fit=crop", // Conference/business meeting
       featured: true
     },
     {
@@ -41,7 +41,7 @@ const Blog = () => {
       date: "November 10, 2025",
       readTime: "6 min read",
       excerpt: "Why unposed, spontaneous moments often tell the most powerful stories of human connection and shared experiences.",
-      image: "candid-moments",
+      image: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&h=500&fit=crop", // People laughing/candid moment
       featured: false
     },
     {
@@ -51,7 +51,7 @@ const Blog = () => {
       date: "October 28, 2025",
       readTime: "7 min read",
       excerpt: "A comprehensive guide to the equipment I use for conferences, celebrations, and special occasions.",
-      image: "photography-gear",
+      image: "https://images.unsplash.com/photo-1606243235023-460e03ae2e92?w=800&h=500&fit=crop", // Camera gear/equipment
       featured: false
     },
     {
@@ -61,7 +61,7 @@ const Blog = () => {
       date: "October 5, 2025",
       readTime: "6 min read",
       excerpt: "Working with mixed lighting, low light situations, and dramatic stage lighting in diverse event environments.",
-      image: "event-lighting",
+      image: "https://images.unsplash.com/photo-1556035511-3168381ea4d4?w=800&h=500&fit=crop", // Stage lighting/event lighting
       featured: false
     },
     {
@@ -71,7 +71,7 @@ const Blog = () => {
       date: "September 15, 2025",
       readTime: "9 min read",
       excerpt: "Follow me through a typical event day and see what goes into capturing key moments from setup to delivery.",
-      image: "photographer-day",
+      image: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=800&h=500&fit=crop", // Photographer at work
       featured: false
     }
   ];
@@ -107,10 +107,13 @@ const Blog = () => {
           >
             <div className="grid grid-cols-1 lg:grid-cols-2">
               {/* Image */}
-              <div className="aspect-[16/10] lg:aspect-auto bg-gradient-to-br from-neutral-800 to-neutral-900 relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-neutral-700">{featuredPost.image}</span>
-                </div>
+              <div className="aspect-[16/10] lg:aspect-auto relative overflow-hidden">
+                <img 
+                  src={featuredPost.image} 
+                  alt={featuredPost.title}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
                 <div className="absolute top-4 left-4 bg-white text-black px-3 py-1 text-xs uppercase tracking-widest font-semibold">
                   Featured
                 </div>
@@ -189,10 +192,13 @@ const Blog = () => {
               }}
             >
               {/* Image */}
-              <div className="aspect-[16/10] bg-gradient-to-br from-neutral-800 to-neutral-900 relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-neutral-700 text-sm">{post.image}</span>
-                </div>
+              <div className="aspect-[16/10] relative overflow-hidden">
+                <img 
+                  src={post.image} 
+                  alt={post.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                />
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                   <span className="text-white text-sm uppercase tracking-widest">Read Article</span>

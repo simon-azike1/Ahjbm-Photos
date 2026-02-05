@@ -45,6 +45,10 @@ const About = () => {
       description: "Professional post-processing that enhances without over-manipulation"
     }
   ];
+  
+  const message = encodeURIComponent(
+    "Hello, I would like to inquire about your photography services."
+  );
 
   return (
     <section id="about" className="py-24 bg-black">
@@ -237,7 +241,8 @@ const About = () => {
 
           <div className="pt-8">
             <motion.a
-              href="contact"
+            href={`https://wa.me/212617827666?text=${message}`}
+              target='_blank'
               className="inline-block px-8 py-4 bg-white text-black uppercase tracking-widest text-sm font-semibold hover:bg-neutral-200 transition-colors duration-300"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
               initial={{ opacity: 0, y: 20 }}

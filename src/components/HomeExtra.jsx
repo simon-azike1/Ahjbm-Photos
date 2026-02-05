@@ -129,7 +129,7 @@ const HomeExtras = () => {
             Stay Updated
           </h2>
           <p className="text-neutral-400 mb-8">
-            Subscribe to my newsletter for latest photos, tips, and upcoming events.
+            Subscribe to our newsletter for latest photos, tips, and upcoming events.
           </p>
           <form className="flex flex-col sm:flex-row justify-center gap-4">
             <input
@@ -146,22 +146,22 @@ const HomeExtras = () => {
             </button>
           </form>
           <div className="flex justify-center gap-6 mt-8 text-neutral-400">
-            <a 
+            {/* <a 
               href="https://www.linkedin.com/in/anthony-w-akoi-2b87b61a8/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="hover:text-white transition-colors duration-300"
             >
               LinkedIn
-            </a>
-            <a 
+            </a> */}
+            {/* <a 
               href="https://web.facebook.com/profile.php?id=61584580358996" 
               target="_blank" 
               rel="noopener noreferrer"
               className="hover:text-white transition-colors duration-300"
             >
               Facebook
-            </a>
+            </a> */}
           </div>
         </div>
       </section>
