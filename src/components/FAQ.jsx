@@ -15,24 +15,25 @@ const FAQ = () => {
       answer: "I recommend booking 4–8 weeks in advance for standard events, and 2–3 months for peak season dates. However, I always check availability for last-minute requests—don't hesitate to inquire even for short-notice events."
     },
     {
-      question: "Do you travel for events?",
-      answer: "Absolutely! I regularly photograph events throughout the region and am available for domestic and international travel. Travel fees apply for locations beyond a 50-mile radius and include transportation and accommodation when necessary. I love capturing stories in new environments!"
-    },
+  question: "Do you travel for events?",
+  answer: "Absolutely!\n We regularly photograph events throughout the region and we are available for domestic and international travel. Travel fees apply for locations beyond a 50-mile radius and include transportation and accommodation when necessary. We love capturing stories in new environments!"
+}
+,
     {
       question: "When will I receive my photos?",
       answer: "Standard delivery is 10–14 business days for events under 4 hours, and 2–3 weeks for full-day coverage. Rush delivery (48–72 hours) is available as an add-on. You'll also receive a preview image within 24 hours of your event."
     },
     {
       question: "What usage rights do I receive?",
-      answer: "All clients receive a full print release for personal use—meaning you can print, share on social media, and create albums without restrictions. For commercial usage (advertising, merchandise, publications), a separate commercial license is required. I'm happy to discuss options tailored to your needs."
+      answer: "All clients receive a full print release for personal use—meaning you can print, share on social media, and create albums without restrictions. For commercial usage (advertising, merchandise, publications), a separate commercial license is required. We are happy to discuss options tailored to your needs."
     },
     {
       question: "How would you describe your photography style?",
-      answer: "I blend documentary storytelling with intentional portraiture—capturing authentic moments as they unfold while creating a handful of polished environmental portraits. I work unobtrusively during key moments, never directing or interrupting the natural flow of your event. My goal is to be present without being intrusive."
+      answer: "We blend documentary storytelling with intentional portraiture—capturing authentic moments as they unfold while creating a selection of polished environmental portraits. We work discreetly during key moments, allowing the natural flow of your event to remain uninterrupted. Our goal is to be present without ever feeling intrusive."
     },
     {
       question: "What if something unexpected happens?",
-      answer: "While I've never missed an event in my professional career, I maintain a trusted network of exceptional photographers who share my aesthetic. Should an unforeseen circumstance arise, I will personally arrange a qualified replacement at no additional cost—and remain involved in the editing process to ensure consistency with my style."
+      answer: "While we've never missed an event in our professional career, We maintain a trusted network of exceptional photographers who share our aesthetic. Should an unforeseen circumstance arise, we will personally arrange a qualified replacement at no additional cost—and remain involved in the editing process to ensure consistency with our style."
     }
   ];
 
@@ -114,7 +115,7 @@ const FAQ = () => {
                       duration: 0.45,
                       ease: [0.16, 1, 0.3, 1]
                     }}
-                    className="px-6 pb-6 pt-0 text-neutral-300 leading-relaxed"
+                    className="px-6 pb-6 pt-0 text-neutral-300 leading-relaxed whitespace-pre-line"
                   >
                     {faq.answer}
                   </motion.div>
@@ -136,7 +137,7 @@ const FAQ = () => {
             Still have questions? We're here to help.
           </p>
           <a
-            href="https://wa.me/212624766818"
+            href="https://wa.me/212617827666"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black uppercase tracking-widest text-sm font-semibold hover:bg-neutral-200 transition-colors duration-300 rounded-full"

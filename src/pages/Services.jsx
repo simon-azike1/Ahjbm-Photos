@@ -85,6 +85,9 @@ const Services = () => {
     "Raw file access"
   ];
 
+  const message = encodeURIComponent(
+  "Hello, I would like to inquire about your services."
+);
   return (
     <section id="services" className="py-24 bg-black">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 mt-20">
@@ -161,7 +164,8 @@ const Services = () => {
 
                 {/* CTA Button */}
                 <a
-                  href="#contact"
+                  href={`https://wa.me/212617827666?text=${message}`}
+                  target='_blank'
                   className={`block text-center py-4 uppercase tracking-widest text-sm font-semibold transition-all duration-300 mt-6 group/btn ${
                     service.highlighted
                       ? 'bg-white text-black hover:bg-neutral-200'
@@ -263,20 +267,25 @@ const Services = () => {
             create a custom package that fits your vision and budget.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a 
-              href="#contact"
-              className="px-8 py-4 bg-white text-black uppercase tracking-widest text-sm font-semibold hover:bg-neutral-200 transition-colors duration-300"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}
-            >
-              Get a Quote
-            </a>
-            <a 
+           <a
+           href={`https://wa.me/212617827666?text=${message}`}
+           target="_blank"
+           rel="noopener noreferrer"
+           className="px-8 py-4 bg-white text-black uppercase tracking-widest text-sm font-semibold hover:bg-neutral-200 transition-colors duration-300"
+           style={{ fontFamily: "'Montserrat', sans-serif" }}
+
+          >
+           
+           Get a Quote
+
+           </a>
+            {/* <a 
               href="mailto:akoianthonyw@gmail.com"
               className="px-8 py-4 bg-transparent border-2 border-white text-white uppercase tracking-widest text-sm font-semibold hover:bg-white hover:text-black transition-all duration-300"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
               Email Me
-            </a>
+            </a> */}
           </div>
         </div>
       </div>

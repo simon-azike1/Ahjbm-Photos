@@ -81,7 +81,7 @@ const Footer = ({ contact, socialLinks }) => {
             <h4 className="text-white font-semibold uppercase tracking-widest text-sm" style={{ fontFamily: "'Montserrat', sans-serif" }}>
               Connect
             </h4>
-            <div className="space-y-3">
+            <div className="space p-4 flex flex-row flex-wrap gap-4 mr-2">
               <a 
                 href={`mailto:${contact?.email}`}
                 className="flex items-start gap-3 text-neutral-400 hover:text-white transition-colors duration-300 group"
@@ -97,7 +97,7 @@ const Footer = ({ contact, socialLinks }) => {
                 <span className="text-sm group-hover:underline">{contact?.phone}</span>
               </a>
               <a 
-                href={`https://instagram.com/${contact?.instagram?.replace('@','')}`}
+                // href={`https://instagram.com/${contact?.instagram?.replace('@','')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-neutral-400 hover:text-white transition-colors duration-300 group"
@@ -108,7 +108,7 @@ const Footer = ({ contact, socialLinks }) => {
             </div>
             <div className="pt-2">
               {/* <a
-                href="https://wa.me/212624766818"
+                href="https://wa.me/212617827666"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 bg-white text-black text-xs uppercase tracking-widest font-semibold hover:bg-neutral-200 transition-colors duration-300 rounded-full"
@@ -137,7 +137,7 @@ const Footer = ({ contact, socialLinks }) => {
             </div>
             <div className="flex items-center gap-4">
               <a
-                href="https://wa.me/212624766818"
+                href="https://wa.me/212617827666"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-2 bg-black from-indigo-500 to-purple-600 text-white text-sm uppercase tracking-widest font-semibold hover:opacity-90 transition-opacity duration-300 rounded-full"
@@ -171,7 +171,7 @@ const Footer = ({ contact, socialLinks }) => {
               </a> */}
             </div>
             <p className="flex  ml-4 items-center gap-2">
-              Crafted with by <a 
+              Crafted by <a 
                 href="https://my-new-portfolio-hazel.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"

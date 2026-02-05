@@ -67,6 +67,10 @@ const Home = () => {
     },
   ];
 
+  const message = encodeURIComponent( 
+    "Hello, I would like to inquire about your photography services."
+  );
+
   return (
     <section id="home" className="relative min-h-screen bg-black">
       {/* Hero Section */}
@@ -133,8 +137,8 @@ const Home = () => {
             >
               View Portfolio
             </a>
-                  <a
-          href="https://wa.me/+212624766818"
+          <a
+          href={`https://wa.me/212617827666?text=${message}`}
           target="_blank"
           rel="noopener noreferrer"
           className="px-8 py-4 bg-transparent border-2 border-white text-white uppercase tracking-widest text-sm font-semibold hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105"

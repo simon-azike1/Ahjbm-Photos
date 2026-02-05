@@ -60,7 +60,7 @@ const Team = () => {
     name: "Blessing Andyietta Jaliba",
     role: "Lead Podcast Presenter",
     bio: "Leads and hosts the AhJbm podcast, shaping its editorial direction through engaging conversations, storytelling, and community-focused discussions.",
-    featured: true,
+    featured: false,
     imgSrc: image2,
     linkedin: null
   }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, Instagram, MapPin, Send, CheckCircle } from 'lucide-react';
+import {motion} from "framer-motion"
 import FAQ from '../components/FAQ';
 
 const Contact = () => {
@@ -44,7 +45,7 @@ const Contact = () => {
       icon: Instagram,
       label: "Instagram",
       value: "@Athony W. Akoi",
-      link: "https://instagram.com/athonyw.akoi"
+      // link: "https://instagram.com/athonyw.akoi"
     },
     {
       icon: MapPin,
@@ -66,11 +67,22 @@ const Contact = () => {
     <section id="contact" className="py-24 bg-neutral-950">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 mt-24">
         {/* Section Header */}
-        <div className="text-center mb-16 space-y-4">
-        
-        </div>
+    <motion.div
+  className="text-center mb-16 space-y-4"
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, ease: "easeOut" }}
+>
+  <h1 className="text-white text-4xl md:text-5xl font-bold tracking-wide">
+    Get in Touch
+  </h1>
+  <p className="text-neutral-300 max-w-xl mx-auto text-sm md:text-base">
+    We’d love to hear from you. Reach out for inquiries, collaborations, or any questions you may have.
+  </p>
+</motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-35">
           {/* Contact Form */}
           <div className="space-y-8">
             <div className="space-y-4">
@@ -215,7 +227,7 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   className="w-full px-4 py-3 bg-black border border-neutral-800 text-white focus:border-white focus:outline-none transition-colors duration-300 resize-none"
-                  placeholder="Tell me about your event, your vision, and any specific requirements..."
+                  placeholder="Tell us about your event, your vision, and any specific requirements..."
                 />
               </div>
 
