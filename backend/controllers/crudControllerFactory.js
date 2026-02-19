@@ -66,7 +66,9 @@ const createCrudController = (collectionName) => {
         return res.status(400).json({ message: "Request body must be a valid object." });
       }
 
-      const payload = withTimestamps(req.body, false);
+      const { _id, ...rest } = req.body;
+      const payload = withTimestamps(rest, false);
+
       const filter = { _id: new ObjectId(id) };
       const result = await collection().updateOne(filter, { $set: payload });
 
