@@ -1,4 +1,5 @@
-import React from "react";
+
+import React, { useState } from "react";
 import {
   Save,
   RefreshCw,
@@ -12,11 +13,15 @@ import {
   BriefcaseBusiness,
   FileText,
   ContactRound,
+  Loader2,
 } from "lucide-react";
 import { Button } from "../../ui/button";
 import { Input } from "../../ui/input";
 import { Label } from "../../ui/label";
 import { Textarea } from "../../ui/textarea";
+
+const CLOUDINARY_CLOUD_NAME = "djizgbimn";
+const CLOUDINARY_UPLOAD_PRESET = "ahjbm_unsigned";
 
 export const ResourceView = ({
   resource,
@@ -31,6 +36,8 @@ export const ResourceView = ({
   onEdit,
   onDelete,
 }) => {
+  const [uploadingField, setUploadingField] = useState(null);
+
   const resourceIcons = {
     team: Users,
     projects: FolderKanban,
@@ -40,6 +47,53 @@ export const ResourceView = ({
     contactResource: ContactRound,
   };
   const ResourceIcon = resourceIcons[config.iconKey] || FolderKanban;
+
+  const uploadToCloudinary = async (file) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
+
+    const response = await fetch(
+      `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`,
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to upload image to Cloudinary.");
+    }
+
+    const data = await response.json();
+    return data.secure_url;
+  };
+
+  const handleImageUpload = async (fieldName, file) => {
+    if (!file) return;
+
+    if (!file.type?.startsWith("image/")) {
+      alert("Please choose an image file.");
+      return;
+    }
+
+    const MAX_MB = 10;
+    if (file.size > MAX_MB * 1024 * 1024) {
+      alert(`Image is too large. Please upload an image under ${MAX_MB}MB.`);
+      return;
+    }
+
+    try {
+      setUploadingField(fieldName);
+      const imageUrl = await uploadToCloudinary(file);
+      onFormChange(resource, fieldName, imageUrl);
+    } catch (error) {
+      console.error("Upload error:", error);
+      alert("Failed to upload image. Please try again.");
+    } finally {
+      setUploadingField(null);
+    }
+  };
 
   return (
     <div className="space-y-6">
@@ -81,6 +135,7 @@ export const ResourceView = ({
                   {field.label}
                   {field.required && <span className="text-red-400 ml-1">*</span>}
                 </Label>
+
                 {field.type === "textarea" ? (
                   <Textarea
                     id={field.name}
@@ -100,6 +155,55 @@ export const ResourceView = ({
                     />
                     <span className="text-neutral-300">{field.label}</span>
                   </label>
+                ) : field.type === "image" ? (
+                  <div className="space-y-3">
+                    {/* Option 1: Paste a URL */}
+                    <Input
+                      id={field.name}
+                      type="text"
+                      value={form[field.name] ?? ""}
+                      onChange={(e) => onFormChange(resource, field.name, e.target.value)}
+                      required={field.required}
+                      placeholder="Paste an image URL"
+                      className="bg-black border-neutral-800 text-white placeholder:text-neutral-600 focus:border-white"
+                    />
+
+                    {/* Option 2: Upload from device (to Cloudinary) */}
+                    <div className="flex items-center gap-2">
+                      <span className="text-neutral-500 text-xs uppercase tracking-wider">or</span>
+                      <div className="relative flex-1">
+                        <input
+                          type="file"
+                          accept="image/*"
+                          disabled={uploadingField === field.name}
+                          onChange={(e) => handleImageUpload(field.name, e.target.files?.[0])}
+                          className="block w-full text-sm text-neutral-300 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:bg-neutral-900 file:text-neutral-200 hover:file:bg-neutral-800 disabled:opacity-50"
+                        />
+                        {uploadingField === field.name && (
+                          <div className="absolute inset-0 flex items-center justify-center bg-black/50 rounded">
+                            <Loader2 className="animate-spin text-white" size={20} />
+                            <span className="ml-2 text-white text-sm">Uploading...</span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Preview */}
+                    {form[field.name] ? (
+                      <div className="border border-neutral-800 rounded-lg p-3 bg-black">
+                        <p className="text-xs text-neutral-500 mb-2">Preview</p>
+                        <img
+                          src={form[field.name]}
+                          alt={`${field.label} preview`}
+                          className="w-full max-h-56 object-cover rounded"
+                          loading="lazy"
+                        />
+                        {form[field.name].includes("cloudinary") && (
+                          <p className="text-xs text-green-500 mt-2">✓ Stored on Cloudinary CDN</p>
+                        )}
+                      </div>
+                    ) : null}
+                  </div>
                 ) : (
                   <Input
                     id={field.name}
