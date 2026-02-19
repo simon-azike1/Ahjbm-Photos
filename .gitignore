@@ -12,7 +12,12 @@ dist
 dist-ssr
 *.local
 .env
-.env.*.local
+.env.*.local# env files (never commit)
+           const PORT = process.env.PORT || 5000;
+           app.listen(PORT, "0.0.0.0", () => console.log(`Listening on ${PORT}`));.env
+            .env.*
+            backend/.env
+            backend/.env.*
 
 # Editor directories and files
 .vscode/*
