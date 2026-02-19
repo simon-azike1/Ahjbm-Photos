@@ -1,0 +1,26 @@
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+
+const safeFetchJson = async (path) => {
+  const response = await fetch(`${API_BASE_URL}${path}`);
+  if (!response.ok) {
+    throw new Error(`Failed request: ${response.status}`);
+  }
+  return response.json();
+};
+
+export const fetchPublicCollection = (resource) => safeFetchJson(`/api/public/${resource}`);
+
+export const loginAdmin = async (username, password) => {
+  const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username, password }),
+  });
+
+  if (!response.ok) {
+    const data = await response.json().catch(() => ({}));
+    throw new Error(data.message || "Login failed.");
+  }
+
+  return response.json();
+};

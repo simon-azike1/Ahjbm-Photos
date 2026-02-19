@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Mail, Phone, Instagram, MapPin, Send, CheckCircle } from 'lucide-react';
 import {motion} from "framer-motion"
 import FAQ from '../components/FAQ';
+import { submitInquiry } from '../lib/contentApi';
+import usePublicCollection from '../hooks/usePublicCollection';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +15,7 @@ const Contact = () => {
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const { items: contacts } = usePublicCollection('contact', []);
 
   const handleChange = (e) => {
     setFormData({
@@ -21,14 +24,27 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Form submission logic would go here
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 5000);
+    try {
+      await submitInquiry(formData);
+      setIsSubmitted(true);
+      setTimeout(() => setIsSubmitted(false), 5000);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        service: '',
+        eventDate: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error(error);
+      setIsSubmitted(false);
+    }
   };
 
-  const contactInfo = [
+  const defaultContactInfo = [
     {
       icon: Mail,
       label: "Email",
@@ -54,6 +70,15 @@ const Contact = () => {
       link: null
     }
   ];
+  const contactRecord = contacts[0];
+  const contactInfo = contactRecord
+    ? [
+        { icon: Mail, label: "Email", value: contactRecord.email || "N/A", link: contactRecord.email ? `mailto:${contactRecord.email}` : null },
+        { icon: Phone, label: "Phone / WhatsApp", value: contactRecord.phone || "N/A", link: contactRecord.phone ? `tel:${contactRecord.phone}` : null },
+        { icon: Instagram, label: "Instagram", value: contactRecord.instagram || "N/A", link: null },
+        { icon: MapPin, label: "Location", value: contactRecord.location || "Temara, Morocco", link: null }
+      ]
+    : defaultContactInfo;
 
   const services = [
     "Church Photography",
@@ -347,7 +372,7 @@ const Contact = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes fadeInLeft {
           from {
             opacity: 0;

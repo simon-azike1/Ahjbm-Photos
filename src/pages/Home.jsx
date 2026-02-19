@@ -204,7 +204,7 @@ const Home = () => {
           </div>
 
           {/* Pause on hover using CSS */}
-          <style jsx>{`
+          <style>{`
             @keyframes scroll {
               0% {
                 transform: translateY(0);

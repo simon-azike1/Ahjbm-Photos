@@ -2,7 +2,7 @@
 // FILE: src/App.jsx
 // ==================================================
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 
 // Components
 import Header from './components/Header';
@@ -17,13 +17,17 @@ import Project from './pages/Project';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import Team from './pages/Team';
+import Admin from './pages/Admin';
 import Events from './components/Events';
 
 const App = () => {
+  const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith('/admin');
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header */}
-      <Header />
+      {!isAdminRoute && <Header />}
 
       {/* Main Content */}
       <main className="flex-grow">
@@ -36,6 +40,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/events" element={<Events />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </main>
 
