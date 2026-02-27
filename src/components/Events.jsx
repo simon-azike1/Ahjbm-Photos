@@ -23,9 +23,7 @@ const EventPhotos = () => {
     <section id="events" className="py-24 bg-black">
       <div className="mt-24 max-w-7xl mx-auto px-6 lg:px-12">
         <div className="text-center mb-16 space-y-4">
-          <motion.h2 className="text-5xl lg:text-6xl font-bold text-white tracking-tight" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-            Event Photography
-          </motion.h2>
+        
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -42,14 +42,6 @@ const Team = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2
-            className="text-5xl lg:text-6xl font-bold text-white mb-10"
-            style={{ fontFamily: "'Cormorant Garamond', serif" }}
-          >
-            Our Creative Team
-          </h2>
-          <p className="text-neutral-500 text-sm">Records: {teamMembers.length}</p>
-          {error ? <p className="text-red-400 text-sm mt-2">Team API error: {error}</p> : null}
         </motion.div>
 
         {!loading && teamMembers.length === 0 ? (

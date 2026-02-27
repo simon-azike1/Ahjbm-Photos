@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Calendar, Clock, ArrowRight, Tag } from 'lucide-react';
+import { motion } from 'framer-motion';
 import usePublicCollection from '../hooks/usePublicCollection';
 
 const defaultPosts = [
@@ -34,14 +35,16 @@ const Blog = () => {
   return (
     <section id="blog" className="py-24 bg-black">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="text-5xl lg:text-6xl font-bold text-white tracking-tight" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-            Blog & Insights
-          </h2>
-        </div>
+  
 
         {featuredPost && (
-          <div className="bg-neutral-950 border-2 border-neutral-800 mb-16 overflow-hidden">
+          <motion.div
+            className="bg-neutral-950 border-2 border-neutral-800 mb-16 overflow-hidden"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7 }}
+          >
             <div className="grid grid-cols-1 lg:grid-cols-2">
               <div className="aspect-[16/10] lg:aspect-auto relative overflow-hidden">
                 <img src={featuredPost.image} alt={featuredPost.title} className="w-full h-full object-cover" loading="lazy" />
@@ -55,7 +58,7 @@ const Blog = () => {
                 <p className="text-neutral-400 leading-relaxed">{featuredPost.excerpt}</p>
               </div>
             </div>
-          </div>
+          </motion.div>
         )}
 
         <div className="flex flex-wrap justify-center gap-3 mb-12">
@@ -74,7 +77,14 @@ const Blog = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPosts.map((post, idx) => (
-            <article key={post._id || post.id || idx} className="bg-neutral-950 border border-neutral-800 overflow-hidden">
+            <motion.article
+              key={post._id || post.id || idx}
+              className="bg-neutral-950 border border-neutral-800 overflow-hidden"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: idx * 0.12 }}
+            >
               <div className="aspect-[16/10] relative overflow-hidden">
                 <img src={post.image} alt={post.title} className="w-full h-full object-cover" loading="lazy" />
               </div>
@@ -94,7 +104,7 @@ const Blog = () => {
                   <ArrowRight size={16} />
                 </span>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>

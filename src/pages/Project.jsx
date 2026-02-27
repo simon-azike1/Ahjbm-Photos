@@ -59,11 +59,7 @@ const Project = () => {
   return (
     <section id="project" className="py-24 bg-neutral-950">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="text-5xl lg:text-6xl font-bold text-white tracking-tight" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-            Featured Projects
-          </h2>
-        </div>
+    
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {projects.map((project, idx) => (
@@ -72,6 +68,10 @@ const Project = () => {
               className="group relative bg-black border border-neutral-800 overflow-hidden hover:border-neutral-600 transition-all duration-500 cursor-pointer"
               onClick={() => openProject(project)}
               whileHover={{ scale: 1.02 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: idx * 0.12 }}
             >
               <div className="aspect-[4/3] relative overflow-hidden bg-neutral-900">
                 <img src={getCoverImage(project)} alt={project.title} className="w-full h-full object-cover" loading="lazy" />
@@ -80,7 +80,13 @@ const Project = () => {
                 </div>
               </div>
 
-              <div className="p-6 space-y-4">
+              <motion.div
+                className="p-6 space-y-4"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, delay: idx * 0.18 }}
+              >
                 <h3 className="text-2xl font-bold text-white" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
                   {project.title}
                 </h3>
@@ -90,7 +96,7 @@ const Project = () => {
                   {project.attendees && <span className="flex items-center gap-2"><Users size={14} />{project.attendees}</span>}
                 </div>
                 <p className="text-neutral-400 leading-relaxed line-clamp-3">{project.description}</p>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </div>
