@@ -13,7 +13,7 @@ const Team = () => {
     bio: member.bio || member.description || "",
     image: member.image || member.imgSrc || "/AHJBM logo.png",
     linkedin: member.linkedin || null,
-    featured: Boolean(membereatured),
+    featured: Boolean(member.featured),
   }));
 
   const containerVariants = {
