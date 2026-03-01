@@ -1,11 +1,24 @@
 import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
 import connectDB, { getDB } from "../config/db.js";
 import defaultContent from "../data/defaultContent.js";
 
-dotenv.config();
+// determine directory of current module (ESM doesn't provide __dirname)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// load environment variables from the backend root directory even if the
+// script is invoked from a subfolder (e.g. scripts/).
+const envPath = path.resolve(__dirname, "..", ".env");
+dotenv.config({ path: envPath });
 
 const now = () => new Date().toISOString();
 
+// the order of this array determines the insertion order when seeding.
+// Anthony must always be first; if you add more members simply append them
+// to the end of the array.  The seeder will also enforce the ordering even
+// during a forced reseed.
 const defaultTeamMembers = [
   {
     name: "Anthony W. Akoi",
@@ -402,14 +415,41 @@ const withTimestamps = (docs) =>
     updatedAt: now(),
   }));
 
+// for the "teams" collection we want to guarantee a specific ordering
+// (Anthony should always be first) and allow reseeding even if there are
+// already documents in the database.  When the environment variable
+// FORCE_SEED=true is set the collection will be wiped before inserting.
+
 const seedCollectionIfEmpty = async (name, docs) => {
   const collection = getDB().collection(name);
+
+  // optionally clear existing docs when forcing a seed (useful for dev)
+  if (process.env.FORCE_SEED === "true") {
+    await collection.deleteMany({});
+    console.log(`Cleared ${name} collection (force seed enabled).`);
+  }
+
   const count = await collection.countDocuments();
   if (count > 0) {
     console.log(`Skipping ${name}: already has ${count} document(s).`);
     return;
   }
+
   if (!docs.length) return;
+
+  // if we are dealing with the teams collection, make sure Anthony is
+  // moved to the front of the list before inserting.  Additional members
+  // (new entries added to the docs array) will naturally appear after him.
+  if (name === "teams") {
+    const idx = docs.findIndex((m) =>
+      typeof m.name === "string" && m.name.toLowerCase().startsWith("anthony")
+    );
+    if (idx > 0) {
+      const [anthony] = docs.splice(idx, 1);
+      docs.unshift(anthony);
+    }
+  }
+
   await collection.insertMany(withTimestamps(docs));
   console.log(`Seeded ${name}: ${docs.length} document(s).`);
 };
