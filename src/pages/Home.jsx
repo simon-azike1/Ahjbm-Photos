@@ -9,30 +9,28 @@ const Home = () => {
   // External image URLs
   const heroImages = [
     {
-      src: "https://static.vecteezy.com/system/resources/thumbnails/046/964/644/small/closeup-shot-of-vintage-dslr-camera-retro-technology-background-travel-gear-copy-space-area-photo.jpg",
+      src: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1920&q=80",
       text: "Authentic moments captured with care",
     },
-    
     {
-      src: "https://viscorner.com/_next/image?url=https%3A%2F%2Fimages.viscorner.com%2Fcms%2Fphotography_on_Vis_Corner_711779f72c.jpg&w=3840&q=75",
+      src: "https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=1920&q=80",
       text: "People and connection in every frame",
     },
     {
-      src: "https://aetherdigital.com/wp-content/uploads/2021/05/How-to-Get-a-Blurred-Background-With-a-DSLR-Camera.jpg",
+      src: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1920&q=80",
       text: "Telling stories through intentional imagery",
     },
   ];
 
   // Images for the horizontal scroller
   const scrollerImages = [
-   
-     "https://images.unsplash.com/photo-1516802273409-68333ad7749c?w=600",
-    "https://images.unsplash.com/photo-1543269664-76bc3997d9ea?w=600",
-    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600",
-    "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600",
-    "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600",
-    "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=600",
-    "https://images.unsplash.com/photo-1506748200771-43c1c5686de5?w=600",
+    "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=600",
+    "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600",
+    "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600",
+    "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600",
+    "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600",
+    "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=600",
+    "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600",
   ];
 
   useEffect(() => {
@@ -110,18 +108,18 @@ const Home = () => {
           transition={{ duration: 1.2 }}
         >
           <h2
-            className=" mt-30 text-6xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight leading-tight"
-            style={{ fontFamily: "'Cormorant Garamond', serif" }} > Capturing <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-neutral-300 to-neutral-500"> The Moments</span>
+            className=" mt-30 text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-tight drop-shadow-[0_4px_30px_rgba(0,0,0,0.8)]"
+            style={{ fontFamily: "'Cormorant Garamond', serif", color: 'white', textShadow: '0 2px 20px rgba(0,0,0,0.9)' }} > Capturing <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-neutral-300 to-neutral-500"> The Moments</span>
           </h2>
 
           <motion.p
-            className="mb-4 mt-25 text-lg text-neutral-400 uppercase tracking-widest"
-            style={{ fontFamily: "'Montserrat', sans-serif" }}
+            className="mb-4 mt-25 text-lg uppercase tracking-widest drop-shadow-[0_2px_15px_rgba(0,0,0,0.9)]"
+            style={{ fontFamily: "'Montserrat', sans-serif", color: 'white', textShadow: '0 1px 10px rgba(0,0,0,0.9)' }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.4 }}
           >
-            AHJBM Photography
+            Elite Digital Family (EDF)
           </motion.p>
 
           <motion.div
@@ -186,7 +184,7 @@ const Home = () => {
           <div className="flex animate-scroll">
             {[...scrollerImages, ...scrollerImages].map((src, idx) => (
               <div key={idx} className="flex-shrink-0 w-[300px] md:w-[400px] mx-4">
-                <div className="relative group overflow-hidden rounded-lg shadow-2xl">
+                <div className="relative group overflow-hidden shadow-2xl">
                   <img
                     src={src}
                     alt={`Portfolio ${idx + 1}`}

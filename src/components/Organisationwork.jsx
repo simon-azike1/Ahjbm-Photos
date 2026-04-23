@@ -19,7 +19,7 @@ const Organisationwork = () => {
       color: "from-blue-900 to-blue-800"
     },
     {
-      name: "AHJBM Digital Family",
+      name: "Elite Digital Family (EDF)",
       role: "Lead Photographer",
       type: "Digital Media",
       period: "2021 - Present",

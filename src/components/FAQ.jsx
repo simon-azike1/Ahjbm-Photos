@@ -70,7 +70,7 @@ const FAQ = () => {
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              className={`overflow-hidden rounded-xl transition-all duration-300 ${
+              className={`overflow-hidden transition-all duration-300 ${
                 openIndex === index 
                   ? 'bg-neutral-900' 
                   : 'bg-neutral-900/30 hover:bg-neutral-900/50'
@@ -125,28 +125,7 @@ const FAQ = () => {
           ))}
         </div>
 
-        {/* Final CTA */}
-        <motion.div
-          className="mt-16 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        >
-          <p className="text-neutral-400 mb-6">
-            Still have questions? We're here to help.
-          </p>
-          <a
-            href="https://wa.me/212617827666"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black uppercase tracking-widest text-sm font-semibold hover:bg-neutral-200 transition-colors duration-300 rounded-full"
-            style={{ fontFamily: "'Montserrat', sans-serif" }}
-          >
-            Message on WhatsApp
-            <span>→</span>
-          </a>
-        </motion.div>
+
       </div>
     </section>
   );

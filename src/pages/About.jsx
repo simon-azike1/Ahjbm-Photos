@@ -88,7 +88,7 @@ const About = () => {
             </h2>
             <div className="w-20 h-1 bg-white"></div>
             <p className="text-neutral-300 text-lg leading-relaxed">
-              We are <span className="text-white font-semibold">AHJBM digital</span>, 
+              We are <span className="text-white font-semibold">Elite Digital Family</span>, 
               a photography team dedicated to capturing meaningful moments 
               across events, gatherings, and visual storytelling projects.
             </p>
@@ -227,7 +227,7 @@ const About = () => {
                 className="text-2xl font-semibold text-white mb-2"
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}
               >
-                AHJBM Digital Family
+                Elite Digital Family (EDF)
               </h4>
               <p className="text-neutral-400 text-sm uppercase tracking-widest mb-4" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                 Photography Team 

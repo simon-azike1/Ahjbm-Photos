@@ -1,5 +1,58 @@
-/* ===============================
-   IMPORTS (MUST BE FIRST)
-  
- =============================== */
 @import "tailwindcss";
+
+@theme {
+  --color-bg-primary: #000000;
+  --color-bg-secondary: #0a0a0a;
+  --color-bg-tertiary: #171717;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a3a3a3;
+  --color-text-tertiary: #737373;
+  --color-border-default: #262626;
+}
+
+/* Light mode overrides */
+html.light {
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #fafafa;
+  --color-bg-tertiary: #f5f5f5;
+  --color-text-primary: #171717;
+  --color-text-secondary: #525252;
+  --color-text-tertiary: #737373;
+  --color-border-default: #e5e5e5;
+}
+
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+html {
+  background-color: var(--color-bg-primary) !important;
+  color: var(--color-text-primary) !important;
+  min-height: 100vh;
+}
+
+/* OVERRIDE ALL HARDCODED BLACK BACKGROUNDS */
+.bg-black {
+  background-color: var(--color-bg-primary) !important;
+}
+
+.bg-neutral-900 {
+  background-color: var(--color-bg-secondary) !important;
+}
+
+.bg-neutral-950 {
+  background-color: var(--color-bg-tertiary) !important;
+}
+
+.text-white {
+  color: var(--color-text-primary) !important;
+}
+
+.text-neutral-300, .text-neutral-400 {
+  color: var(--color-text-secondary) !important;
+}
+
+.border-neutral-800 {
+  border-color: var(--color-border-default) !important;
+}
+

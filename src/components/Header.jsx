@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,7 +40,8 @@ const Header = () => {
     { name: 'Projects', href: '/projects' },
     { name: 'Events', href: '/events' },
     { name: 'Blog', href: '/blog' },
-    { name: 'Team', href: '/team' }
+    { name: 'Team', href: '/team' },
+    { name: 'Men\'s Styling', href: '/mens-styling' }
   ];
 
   return (
@@ -55,7 +58,7 @@ const Header = () => {
             className="flex items-center text-2xl lg:text-3xl font-bold tracking-tight text-white hover:text-neutral-300 transition-colors duration-300"
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
           >
-            <img src="./AHJBM logo.png" alt="AHJBM logo" className='ml-2 w-10'/>
+            <img src="/Elite_logo.png" alt="Elite Digital Family logo" className='ml-2 w-10'/>
           </a>
 
           {/* Desktop Navigation */}
@@ -116,52 +119,71 @@ const Header = () => {
 
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden text-white hover:text-neutral-300 transition-colors duration-300"
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+          {/* Theme Toggle & Mobile Menu Button */}
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden text-white hover:text-neutral-300 transition-colors duration-300"
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
         <div
           className={`lg:hidden overflow-hidden transition-all duration-500 ${
-            isMobileMenuOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
+            isMobileMenuOpen ? 'max-h-[700px] opacity-100' : 'max-h-0 opacity-0'
           }`}
         >
-          <div className="py-6 space-y-4 border-t border-neutral-800">
+          <div className="py-8 px-6 space-y-2 border-t border-neutral-800 bg-black/98 backdrop-blur-lg">
             {/* Main links in mobile */}
-            {mainNavLinks.map((link) => (
-              <a
+            {mainNavLinks.map((link, idx) => (
+              <motion.a
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block text-sm tracking-widest uppercase text-neutral-300 hover:text-white transition-all duration-300 hover:translate-x-2"
-                style={{ fontFamily: "'Montserrat', sans-serif" }}
+                className="block py-4 px-4 rounded-sm text-sm tracking-widest uppercase text-neutral-300 hover:text-white hover:bg-white/5 transition-all duration-200"
+                style={{ 
+                  fontFamily: "'Montserrat', sans-serif",
+                  animation: isMobileMenuOpen ? `fadeInLeft 0.3s ease-out ${idx * 0.05}s backwards` : 'none'
+                }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={isMobileMenuOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                transition={{ duration: 0.3, delay: idx * 0.05 }}
               >
                 {link.name}
-              </a>
+              </motion.a>
             ))}
             
             {/* Separator */}
-            <div className="border-t border-neutral-800 my-2"></div>
+            <div className="border-t border-neutral-800 my-4 mx-2"></div>
             
             {/* Dropdown links in mobile */}
-            {dropdownLinks.map((link) => (
-              <a
+            {dropdownLinks.map((link, idx) => (
+              <motion.a
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block text-sm tracking-widest uppercase text-neutral-400 hover:text-white transition-all duration-300 hover:translate-x-2 pl-4"
+                className="block py-4 px-6 rounded-sm text-sm tracking-widest uppercase text-neutral-400 hover:text-white hover:bg-white/5 transition-all duration-200"
                 style={{ fontFamily: "'Montserrat', sans-serif" }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={isMobileMenuOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                transition={{ duration: 0.3, delay: 0.3 + (idx * 0.05) }}
               >
                 {link.name}
-              </a>
+              </motion.a>
             ))}
-
+            
+            {/* Theme toggle at bottom of mobile menu */}
+            <div className="mt-6 pt-6 border-t border-neutral-800 flex items-center justify-between px-4">
+              <span className="text-xs uppercase tracking-widest text-neutral-500" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                Appearance
+              </span>
+              <ThemeToggle />
+            </div>
 
           </div>
         </div>

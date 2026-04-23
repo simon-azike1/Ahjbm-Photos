@@ -56,7 +56,7 @@ export const AdminLayout = ({ activeTab, onTabChange, onLogout, tabs = [], child
     <div className="min-h-screen bg-black antialiased">
       <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-neutral-800 px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <img src="/AHJBM logo.png" alt="AHJBM logo" className="w-8 h-8 object-contain rounded-md" />
+          <img src="/Elite_logo.png" alt="Elite Digital Family logo" className="w-8 h-8 object-contain rounded-md" />
           <h1 className="text-lg font-semibold text-white tracking-tight" style={{ fontFamily: "'Cormorant Garamond', serif" }}>Admin</h1>
         </div>
         <button
@@ -80,7 +80,7 @@ export const AdminLayout = ({ activeTab, onTabChange, onLogout, tabs = [], child
           <div className="flex flex-col h-full">
             <div className={`p-4 border-b border-neutral-800/70 hidden lg:flex items-center ${sidebarCollapsed ? "justify-center" : "justify-between"}`}>
               <div className={`flex items-center gap-3 ${sidebarCollapsed ? "hidden" : "flex"}`}>
-                <img src="/AHJBM logo.png" alt="AHJBM logo" className="w-9 h-9 object-contain rounded-lg" />
+                <img src="/Elite_logo.png" alt="Elite Digital Family logo" className="w-9 h-9 object-contain rounded-lg" />
                 <div>
                   <h1 className="text-lg font-bold text-white tracking-tight" style={{ fontFamily: "'Cormorant Garamond', serif" }}>Content Manager</h1>
                   <p className="text-xs text-neutral-500 uppercase tracking-widest" style={{ fontFamily: "'Montserrat', sans-serif" }}>Photography Portfolio</p>

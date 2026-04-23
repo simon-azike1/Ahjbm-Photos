@@ -19,6 +19,7 @@ import Contact from './pages/Contact';
 import Team from './pages/Team';
 import Admin from './pages/Admin';
 import Events from './components/Events';
+import MensStyling from './pages/MensStyling';
 
 const App = () => {
   const location = useLocation();
@@ -40,6 +41,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/events" element={<Events />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/mens-styling" element={<MensStyling />} />
           <Route path="/admin" element={<Admin />} />
         </Routes>
       </main>

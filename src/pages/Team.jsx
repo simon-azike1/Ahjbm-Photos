@@ -11,7 +11,7 @@ const Team = () => {
     name: member.name || "Team Member",
     role: member.role || "Team",
     bio: member.bio || member.description || "",
-    image: member.image || member.imgSrc || "/AHJBM logo.png",
+    image: member.image || member.imgSrc || "/Elite_logo.png",
     linkedin: member.linkedin || null,
     featured: Boolean(member.featured),
   }));
@@ -76,7 +76,7 @@ const Team = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     onError={(event) => {
                       event.currentTarget.onerror = null;
-                      event.currentTarget.src = "/AHJBM logo.png";
+                      event.currentTarget.src = "/Elite_logo.png";
                     }}
                   />
 

@@ -9,7 +9,7 @@ const portfolioImages = [
   { src: "https://www.eventsair.com/wp-content/uploads/2020/01/corporate-event-2-1.jpg", title: "Corporate Event" , description: "Capturing the essence of corporate events."},
   { src: "https://www.musicnotes.com/blog/content/images/now/wp-content/uploads/live-performance-blog-header.png", title: "Live Performance", description: "Capturing the energy of live events." },
   { src: "https://www.fluxmagazine.com/wp-content/smush-webp/2022/11/Occasion-Web-1.jpg.webp", title: "Special Occasion", description: "Capturing memorable moments." },
-  { src: "https://scontent.frba1-4.fna.fbcdn.net/v/t39.30808-6/597599851_122100205503152678_4147643650427902337_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=108&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeE1P2X1DBMh5zHsPSsyxJe52hjTbS-BFwnaGNNtL4EXCS7xoLu8EhkTthdH-CMj0BTZ3hJVd-kKEYJQ5UieKuva&_nc_ohc=yD0nwtnt0GQQ7kNvwEMWJqL&_nc_oc=AdnP7a3spC8itvusJN8e9a6Rzdq7zYEESND7khUh0wF-hY3aeb4JMDjkykuz3TMTITk&_nc_zt=23&_nc_ht=scontent.frba1-4.fna&_nc_gid=Im3ySh6tzEeJ-tTiQG2CDg&oh=00_AfvHqRU0_lUo4SeQ3belXX4poUSoqOrNdxiNRx9NHMFRig&oe=6983E099", title: "Group Portrait", description: "Capturing group dynamics and relationships." },
+  { src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop", title: "Group Portrait", description: "Capturing group dynamics and relationships." },
   { src: "https://www.delveinsight.com/_next/image?url=https%3A%2F%2Fassets.delveinsight.com%2Fimg%2FresearchCoverage%2Fimage-1.png&w=3840&q=75", title: "Conference Coverage", description: "Documenting key moments and speakers." },
   { src: "https://blog.fractureme.com/wp-content/uploads/2024/07/sliding-candid-photo.jpg", title: "Candid Moments", description: "Capturing genuine interactions and emotions." },
 ];
@@ -17,17 +17,17 @@ const portfolioImages = [
 // Example testimonials
 const testimonials = [
   {
-    name: "Sarah Johnson",
+    name: "Simon",
     role: "Event Organizer",
     quote: "Anthony captured our event beautifully. His professionalism and attention to detail were outstanding!",
   },
   {
-    name: "Michael Chen",
+    name: "Joseph",
     role: "Corporate Client",
     quote: "The conference photos were stunning and perfectly captured the essence of our brand. Highly recommended!",
   },
   {
-    name: "Emma Williams",
+    name: "Damilare",
     role: "Event Coordinator",
     quote: "Working with Anthony was seamless. The photos exceeded our expectations and were delivered on time.",
   },

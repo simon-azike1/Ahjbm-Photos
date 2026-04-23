@@ -400,7 +400,7 @@ const defaultBlogs = [
 ];
 
 const defaultContactRecord = {
-  name: "AHJBM Photography",
+  name: "Elite Digital Family (EDF)",
   specialty: "Event & Documentary Photography",
   email: "akoianthonyw@gmail.com",
   phone: "+212 617 827 666",

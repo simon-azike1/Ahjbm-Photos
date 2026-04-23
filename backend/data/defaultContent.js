@@ -1,7 +1,7 @@
 const defaultContent = {
   hero: {
     title: "Capturing The Moments",
-    subtitle: "AHJBM Photography",
+    subtitle: "Elite Digital Family (EDF)",
     image:
       "https://static.vecteezy.com/system/resources/thumbnails/046/964/644/small/closeup-shot-of-vintage-dslr-camera-retro-technology-background-travel-gear-copy-space-area-photo.jpg",
   },
@@ -9,7 +9,7 @@ const defaultContent = {
     text: "Professional photography for church, events, and organizations.",
   },
   contact: {
-    name: "AHJBM Photography",
+    name: "Elite Digital Family (EDF)",
     specialty: "Event & Documentary Photography",
     email: "akoianthonyw@gmail.com",
     phone: "+212 617 827 666",
